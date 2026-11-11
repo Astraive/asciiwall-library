@@ -1,0 +1,23 @@
+# Dependabot configuration for Astraive/asciiwall-library.
+# Tracks GitHub Actions workflow pins weekly. Dependabot cannot append the
+# required [TICKET-ID] suffix automatically, so maintainers triage and rename
+# dependency PR titles to `ci(deps): <subject> [TICKET-ID]` (for example
+# [LREL-006] or [LQA-001]) before squash-merging; no bot bypass is permitted.
+# No package/cargo ecosystem exists in this repository.
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci(deps)"
+    labels:
+      - dependencies
+      - github_actions
+      - type:chore

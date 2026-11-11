@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Vulnerability (Private Report Only)
+    url: https://github.com/Astraive/asciiwall-library/security/advisories/new
+    about: Report undisclosed CI privilege issues, malicious archive/media triggers, or catalog trust defects privately. Never open a public issue; see SECURITY.md.
+  - name: Rights Dispute or Attribution Takedown
+    url: https://github.com/Astraive/asciiwall-library/blob/main/docs/licensing-and-review.md#rights-disputes-and-takedown-process
+    about: Follow the documented rights dispute and hash-based takedown route before posting personal proof or private records publicly.
+  - name: Main AsciiWall App, Engine & Desktop Bugs
+    url: https://github.com/Astraive/asciiwall/issues
+    about: Report Rust conversion engine, GPU renderer, CLI, or desktop host bugs in Astraive/asciiwall.
+  - name: Authoring & Licensing Guide
+    url: https://github.com/Astraive/asciiwall-library/blob/main/docs/package-authoring.md
+    about: Read recipe layout, portable path rules, and licensing requirements before submitting a wallpaper recipe.

@@ -1,0 +1,52 @@
+changelog:
+  exclude:
+    labels:
+      - type:duplicate
+  categories:
+    - title: Breaking Format & Compatibility Changes
+      labels:
+        - breaking
+    - title: Wallpaper Recipes & Collection Additions
+      labels:
+        - area:starter-artwork
+        - type:feature
+    - title: Security, Rights & Provenance
+      labels:
+        - type:security
+        - area:licensing
+        - area:provenance
+    - title: Catalog, Schemas & Release Tooling
+      labels:
+        - area:catalog
+        - area:library-release
+        - area:library-foundation
+    - title: Bug Fixes
+      labels:
+        - type:bug
+    - title: Quality, Benchmarks & Gate Verification
+      labels:
+        - area:library-quality
+        - type:test
+        - type:performance
+    - title: Enhancements & Refactoring
+      labels:
+        - type:enhancement
+        - type:refactor
+    - title: Research & Upstream Readiness
+      labels:
+        - type:research
+    - title: Documentation & Community Governance
+      labels:
+        - type:documentation
+        - area:community
+    - title: Dependencies
+      labels:
+        - dependencies
+        - github_actions
+    - title: Infrastructure, Chores & Maintenance
+      labels:
+        - type:chore
+        - type:maintenance
+    - title: Other Changes
+      labels:
+        - "*"

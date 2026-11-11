@@ -1,0 +1,105 @@
+name: Bug report
+description: Report a defect in library policies, schemas, validation scripts, CI workflows, or recipe metadata.
+title: "[Bug] "
+labels: ["type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        File one bug per issue and search open issues first.
+        - **Security vulnerabilities:** Do **not** file a public bug. Use [private vulnerability reporting](https://github.com/Astraive/asciiwall-library/security/advisories/new) per [SECURITY.md](https://github.com/Astraive/asciiwall-library/blob/main/SECURITY.md).
+        - **Main app/engine bugs:** Report Rust engine, converter, GPU renderer, CLI, or desktop host bugs in [Astraive/asciiwall](https://github.com/Astraive/asciiwall/issues).
+        - **Current repository scope:** No wallpaper packages or signed catalogs are published yet; verify boundaries against [SUPPORT.md](https://github.com/Astraive/asciiwall-library/blob/main/SUPPORT.md).
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Priority / Impact
+      description: Initial impact classification (`priority:P0` through `priority:P3`); triage may adjust it.
+      options:
+        - "P0 - Blocker, rights/data exposure, or fail-open validation bypass"
+        - "P1 - High-impact failure in repository checks, schemas, or tooling"
+        - "P2 - Standard defect with clear workaround or limited scope"
+        - "P3 - Minor or cosmetic documentation/template issue"
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Target area
+      options:
+        - Policies & Library Documentation
+        - Repository / Convention / PowerShell Scripts
+        - CI Workflows & GitHub Configuration
+        - Catalog / Recipe Schemas (once added)
+        - Curated Recipe / Attribution Metadata (once published)
+    validations:
+      required: true
+  - type: input
+    id: commit-or-version
+    attributes:
+      label: Commit SHA or catalog version
+      description: Observed commit SHA (or future catalog sequence / package version).
+      placeholder: e.g. commit 9265023
+    validations:
+      required: true
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: Affected platforms
+      multiple: true
+      options:
+        - all
+        - headless
+        - windows
+        - macos
+        - linux
+        - cli
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment tuple
+      description: OS, Python version, PowerShell version, and Git version when relevant.
+      placeholder: e.g. Windows 11, Python 3.12, pwsh 7.4
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: frequency
+    attributes:
+      label: Reproducibility
+      placeholder: e.g. 5 of 5
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized command output or minimal fixture
+      description: Paste redacted stdout/stderr or a minimal synthetic fixture. Never attach secrets, private media, or full local paths.
+  - type: checkboxes
+    id: disclosure-confirm
+    attributes:
+      label: Disclosure safety
+      options:
+        - label: I confirm this report contains no undisclosed security exploit, secrets, private permission proof (PII), personal media, or unredacted private host paths.
+          required: true
