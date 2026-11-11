@@ -1,0 +1,104 @@
+name: Wallpaper recipe submission
+description: Propose or track a curated wallpaper recipe (declarative scene or rights-cleared media) for review.
+title: "[Wallpaper] "
+labels: ["type:feature", "kind:task", "area:starter-artwork"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read [Package Authoring](https://github.com/Astraive/asciiwall-library/blob/main/docs/package-authoring.md), [Quality Requirements](https://github.com/Astraive/asciiwall-library/blob/main/docs/quality-requirements.md), and [Licensing and Review](https://github.com/Astraive/asciiwall-library/blob/main/docs/licensing-and-review.md) before proposing a curated recipe.
+        - **Current repository status:** `Astraive/asciiwall-library` is in its foundation stage; curated package builds remain blocked until pinned AsciiWall engine tools (`package pack`, `package validate`, `bake`) are available.
+        - **Local-only authoring:** You can author private local packages for AsciiWall without submitting them to the curated collection.
+        - **No code or private paths:** Hidden build scripts, plugins, shaders, WebAssembly, creator-local paths, undeclared system fonts, and search-engine media are rejected.
+  - type: input
+    id: ticket
+    attributes:
+      label: Stable ticket ID (optional)
+      description: Existing library backlog ID (e.g. `AST-001` through `AST-036`) if applicable. Leave blank for new community proposals.
+      placeholder: e.g. AST-001
+  - type: input
+    id: slug
+    attributes:
+      label: Wallpaper directory slug
+      description: Lowercase kebab-case slug matching `wallpapers/<slug>/`.
+      placeholder: e.g. matrix-rain
+    validations:
+      required: true
+  - type: dropdown
+    id: collection
+    attributes:
+      label: Collection
+      options:
+        - Minimal
+        - Rain
+        - Space
+        - Geometry
+        - Abstract
+        - Reactive
+        - Low power
+        - Image
+        - Video
+        - Math / Simulation (future engine capability)
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: source-kind
+    attributes:
+      label: Source kind
+      options:
+        - scene (v1 built-in declarative nodes only)
+        - image (rights-cleared raster source)
+        - video (rights-cleared video source)
+        - ascii-clip (precomputed character stream)
+        - rendered-video (baked ASCII pixel video; no editable glyph claims)
+        - later-capability (requires unimplemented upstream engine feature)
+    validations:
+      required: true
+  - type: input
+    id: engine-features
+    attributes:
+      label: Minimum engine version and required features
+      description: Declarative compatibility requirements (e.g. `engine >= 0.1.0`, `scene-v1`).
+      placeholder: e.g. 0.1.0, scene-v1
+    validations:
+      required: true
+  - type: textarea
+    id: capabilities
+    attributes:
+      label: Capabilities and unavailable-feed fallback
+      description: List required vs optional capabilities (`pointer-position`, `pointer-buttons`, `window-rectangles`, `window-state`, `local-clock`) and explain how the wallpaper looks with network and optional observers disabled.
+    validations:
+      required: true
+  - type: textarea
+    id: presets
+    attributes:
+      label: Quality, low-power, and reduced-motion variants
+      description: Summarize proposed portable settings for default quality, low-power mode, and reduced-motion/static fallback (including portrait and wide framing expectations).
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: Per-asset rights and provenance summary
+      description: List origin URL or original-author declaration, SPDX license ID, license file path, font provenance (built-in or redistribution-cleared), and modifications for every asset. Never paste private PII permission documents here.
+    validations:
+      required: true
+  - type: textarea
+    id: resource-notes
+    attributes:
+      label: Reference hardware resource notes
+      description: Measured FPS/cells/memory/CPU/GPU observations on a named reference machine, or `Pending pinned engine and hardware measurement`. Never invent benchmark badges.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety-checks
+    attributes:
+      label: Submission safety checklist
+      options:
+        - label: This submission uses declarative data and approved portable dependencies only (zero scripts, plugins, shaders, creator paths, or undeclared fonts).
+          required: true
+        - label: Every source asset, preview, fallback, and font has explicit redistribution permission and is NOT sourced from unattributed web searches or commercial media clips.
+          required: true
+        - label: This issue contains no secrets, private personal permission proofs (PII), or unredacted host filesystem paths.
+          required: true

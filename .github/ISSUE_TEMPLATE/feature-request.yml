@@ -1,0 +1,65 @@
+name: Feature or catalog improvement
+description: Propose an improvement to library schemas, collection curation, authoring docs, or validation tooling.
+title: "[Feature] "
+labels: ["type:feature", "kind:task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Review [Development Plan](https://github.com/Astraive/asciiwall-library/blob/main/docs/development-plan.md), [Roadmap](https://github.com/Astraive/asciiwall-library/blob/main/docs/roadmap.md), and [Release Process](https://github.com/Astraive/asciiwall-library/blob/main/docs/release-process.md) before opening a proposal.
+        - `Astraive/asciiwall-library` never ships an independent runtime backend, user accounts, database search server, or executable package extensions.
+        - Changes requiring new engine nodes, CLI flags, or core manifest fields must be proposed in [Astraive/asciiwall](https://github.com/Astraive/asciiwall/issues) first.
+  - type: dropdown
+    id: milestone
+    attributes:
+      label: Target milestone
+      options:
+        - Needs triage
+        - L0 - Library Foundation
+        - L1 - Package and Catalog Tooling
+        - L2 - Starter Collection Alpha
+        - L3 - Compatible Library 1.0
+        - L4 - Maintenance
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Target area
+      options:
+        - area:library-foundation
+        - area:catalog
+        - area:starter-artwork
+        - area:licensing
+        - area:library-quality
+        - area:library-release
+        - area:community
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What authoring workflow, rights-tracking gap, catalog validation need, or CI check does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change and offline/security boundaries
+      description: Confirm how the proposal preserves offline-first static distribution, secretless PR validation, and per-asset licensing separation.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Proposed acceptance criteria
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Link relevant `docs/` files or main-repo specs (`https://github.com/Astraive/asciiwall/blob/main/docs/...`) and stable ticket IDs (do not invent GitHub issue numbers).

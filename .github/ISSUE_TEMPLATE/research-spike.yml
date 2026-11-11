@@ -1,0 +1,54 @@
+name: Research or upstream readiness spike
+description: Evaluate upstream engine capability readiness, codec/font licensing obligations, or static distribution limits.
+title: "[Research] "
+labels: ["type:research", "kind:task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Research spikes evaluate a bounded technical, rights, or compatibility question and produce written evidence and a go/no-go decision.
+        - Research alone never makes a later-capability recipe (`AST-029` through `AST-036`) publishable; pinned upstream schema/engine support is required before packing.
+        - Automated license scanners do not substitute for reviewed combined-work and codec distribution obligations.
+  - type: input
+    id: ticket
+    attributes:
+      label: Stable ticket ID (optional)
+      placeholder: e.g. AST-038 or LLEG-003
+  - type: dropdown
+    id: milestone
+    attributes:
+      label: Milestone
+      options:
+        - L0 - Library Foundation
+        - L1 - Package and Catalog Tooling
+        - L2 - Starter Collection Alpha
+        - L3 - Compatible Library 1.0
+        - L4 - Maintenance
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Research question
+      description: Single bounded compatibility, licensing, signing-recovery, or distribution question to settle.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Upstream contract and guardrails
+      description: Name the pinned `Astraive/asciiwall` contracts or dependencies under review and confirm no unsupported runtime feature or fake pass is introduced.
+    validations:
+      required: true
+  - type: textarea
+    id: exit-evidence
+    attributes:
+      label: Exit criteria and fallback decision
+      description: Observable evidence required to conclude the spike and the fallback if an upstream dependency or legal clearance is unavailable.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary sources and specifications
+      description: Link relevant `Astraive/asciiwall` source docs (`docs/library/`, `docs/package/`, `docs/security/`) and primary references.
